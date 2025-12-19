@@ -31,13 +31,13 @@ jobs:
         pip install pandas scikit-learn
 
     # 4. Menjalankan script otomasi Anda
-    # Disesuaikan dengan struktur folder di gambar: preprocessing/preprocessing/
+    # PERBAIKAN PATH: Mengikuti gambar Anda (preprocessing/preprocessing/)
     - name: Run automation script
       run: |
         python preprocessing/preprocessing/final_automate_asyifa.py
 
     # 5. Mengunggah hasil data bersih sebagai artifact
-    # Disesuaikan dengan struktur folder di gambar: preprocessing/preprocessing/namadataset_preprocessing/
+    # PERBAIKAN PATH: Mengikuti gambar Anda (preprocessing/preprocessing/namadataset_preprocessing/)
     - name: Upload clean data
       uses: actions/upload-artifact@v3
       with:
