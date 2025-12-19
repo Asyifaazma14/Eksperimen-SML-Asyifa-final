@@ -1,6 +1,5 @@
 name: Preprocessing Data Automation
 
-# Trigger: Menjalankan workflow setiap kali ada push ke branch main
 on:
   push:
     branches:
@@ -14,31 +13,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Mengambil kode dari repository
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # 2. Menyiapkan lingkungan Python
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
 
-    # 3. Menginstal library yang dibutuhkan
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install pandas scikit-learn
 
-    # 4. Menjalankan script otomasi Anda
-    # Pastikan path ke file .py sudah benar sesuai struktur folder Anda
+    # PERBAIKAN PATH: Sesuai SS, file .py ada di dalam preprocessing/preprocessing/
     - name: Run automation script
       run: |
-        python preprocessing/automate_Asyifa.py
+        python preprocessing/preprocessing/final_automate_asyifa.py
 
-    # 5. Mengunggah hasil data bersih sebagai artifact (opsional tapi disarankan)
+    # PERBAIKAN PATH: Sesuai SS, folder output ada di dalam preprocessing/preprocessing/
     - name: Upload clean data
       uses: actions/upload-artifact@v3
       with:
         name: clean-dataset
-        path: preprocessing/namadataset_preprocessing/data_bersih_eksperimen.csv
+        path: preprocessing/preprocessing/namadataset_preprocessing/data_bersih_eksperimen.csv
